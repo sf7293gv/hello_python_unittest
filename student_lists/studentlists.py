@@ -20,6 +20,11 @@ class ClassList:
         # TODO raise an exception - StudentError - if max_students is zero or negative. 
         # Write test to confirm.
 
+        # New
+        # Program won't create a class if the number is not positive.
+        if max_students <= 0:
+            raise StudentError('Students number must be above 0')
+
 
     def add_student(self, student):
         ''' Add student if there is space in the class,

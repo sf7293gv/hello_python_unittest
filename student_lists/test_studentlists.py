@@ -57,12 +57,17 @@ class TestStudentLists(TestCase):
 
     ## TODO write a test that adds some example students, 
     # then removes a student not in the list, and asserts a StudentError is raised
-
+    def test_addstudents_and_remove_none_existent_student(self):
+        test_class = ClassList(2)
+        test_class.add_student('Student one') # adds a student
+        test_class.add_student('Student two') # adds a student
+        with self.assertRaises(StudentError):
+            test_class.remove_student('Test Student') # remove a student that does not exist
 
     ## TODO write a test that removes a student from an 
     # empty list, and asserts a StudentError is raised
 
-
+git 
 
     def test_is_enrolled_when_student_present(self):
         test_class = ClassList(2)
