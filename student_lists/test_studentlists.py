@@ -67,7 +67,6 @@ class TestStudentLists(TestCase):
     ## TODO write a test that removes a student from an 
     # empty list, and asserts a StudentError is raised
 
-git 
 
     def test_is_enrolled_when_student_present(self):
         test_class = ClassList(2)
