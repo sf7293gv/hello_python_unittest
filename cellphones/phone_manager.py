@@ -73,10 +73,10 @@ class PhoneAssignments():
         # TODO if employee already has a phone, do not change list, and raise exception
         # TODO if employee already has this phone, don't make any changes. This should NOT raise an exception.
         for ph in self.phones:
-            if ph.id == phone_id:
-                if employee.id == ph.employee_id or employee in self.employees:
-                    raise Exception('Exception')
-            
+            if self.employees == employee:
+                raise Exception('Exception')
+            elif ph.id == phone_id and self.employee_id == employee.id:
+                break
             else:
                 ph.assign(employee.id)
                 return
@@ -94,13 +94,17 @@ class PhoneAssignments():
 
         # TODO  should return None if the employee does not have a phone
         # TODO  the method should raise an exception if the employee does not exist
+        if employee not in self.employees:
+            raise Exception('Employee not found.')
 
+        letter = 'a'
         for phone in self.phones:
             if phone.employee_id == employee.id:
+                letter = 'b'
                 return phone
 
-
-        return None
+        if letter == 'a':
+            return None
 
 
 class PhoneError(Exception):
