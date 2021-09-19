@@ -24,6 +24,10 @@ def add_miles(vehicle, new_miles):
         raise MileageError('Provide a positive number for new miles')
 
     vehicle = vehicle.upper()
+    vehicle = vehicle.strip()
+
+    if not vehicle:
+        raise MileageError('Provide a vehicle name')
 
     with sqlite3.connect(db_url) as conn:
         # Attempt to update miles
